@@ -1,0 +1,38 @@
+.va-layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:var(--space-5);align-items:start}
+.recorder{display:flex;flex-direction:column;align-items:center;gap:1.1rem;text-align:center}
+.mic-stage{position:relative;width:132px;height:132px;display:grid;place-items:center;margin-top:.5rem}
+.mic-btn{position:relative;z-index:2;width:104px;height:104px;border-radius:50%;background:var(--gradient-primary);background-size:180% 180%;color:#fff;display:grid;place-items:center;box-shadow:var(--glow);transition:transform var(--transition-speed) var(--ease),box-shadow var(--transition-speed)}
+.mic-btn .icon{width:40px;height:40px}.mic-btn:hover{transform:scale(1.06)}.mic-btn:active{transform:scale(.96)}
+.mic-stage::before,.mic-stage::after{content:"";position:absolute;inset:14px;border-radius:50%;border:2px solid var(--primary-color);opacity:0}
+.recorder.is-recording .mic-stage::before{animation:pulseRing 1.8s ease-out infinite}
+.recorder.is-recording .mic-stage::after{animation:pulseRing 1.8s .9s ease-out infinite}
+.recorder.is-recording .mic-btn{background:linear-gradient(135deg,#ef4444,#f97316);box-shadow:0 8px 28px rgba(239,68,68,.45)}
+.recorder.is-paused .mic-btn{background:linear-gradient(135deg,#f59e0b,#f97316)}
+.timer{font-family:var(--font-mono);font-size:2.2rem;font-weight:600;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.rec-status{display:inline-flex;align-items:center;gap:.5rem;font-size:var(--fs-sm);font-weight:700;color:var(--text-muted)}
+.rec-status i{width:9px;height:9px;border-radius:50%;background:var(--text-muted)}
+.is-recording .rec-status i{background:var(--danger-color);animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.25}}
+.wave-box{width:100%;height:120px;border-radius:14px;background:var(--surface-2);border:1px solid var(--border-color);overflow:hidden}
+.wave-box canvas{width:100%;height:100%}
+.controls{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+.dropzone{width:100%;border:2px dashed var(--border-color);border-radius:14px;padding:1.1rem;color:var(--text-muted);font-size:var(--fs-sm);transition:all var(--transition-speed);cursor:pointer;display:flex;gap:.7rem;align-items:center;justify-content:center}
+.dropzone:hover,.dropzone.drag{border-color:var(--primary-color);background:var(--gradient-soft);color:var(--text-color)}
+.audio-preview{width:100%;display:flex;flex-direction:column;gap:.5rem;text-align:left}.audio-preview audio{width:100%}
+.stages{display:flex;flex-direction:column}
+.stage{display:flex;gap:.9rem;align-items:center;padding:.6rem 0;position:relative;color:var(--text-muted);font-size:var(--fs-sm);font-weight:600;transition:color .3s}
+.stage:not(:last-child)::after{content:"";position:absolute;left:13px;top:calc(50% + 16px);height:calc(100% - 12px);width:2px;background:var(--border-color)}
+.stage.done:not(:last-child)::after{background:var(--success-color)}
+.stage .dot{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--border-color);background:var(--surface-color);flex:none;position:relative;z-index:1;transition:all .3s}
+.stage .dot .icon{width:14px;height:14px;opacity:0}
+.stage.active{color:var(--text-color)}.stage.active .dot{border-color:var(--primary-color);border-top-color:transparent;animation:spin .8s linear infinite}
+.stage.done{color:var(--text-color)}.stage.done .dot{background:var(--success-color);border-color:var(--success-color);color:#fff}.stage.done .dot .icon{opacity:1}
+.stage.error .dot{background:var(--danger-color);border-color:var(--danger-color);color:#fff}
+.stage time{margin-left:auto;font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-muted)}
+.transcript{padding:1rem;border-radius:12px;background:var(--surface-2);border-left:4px solid var(--primary-color);font-size:var(--fs-md);min-height:64px}
+.transcript.empty-t{color:var(--text-muted);border-left-color:var(--border-color)}
+.result-box{border-radius:16px;padding:1.4rem;background:var(--gradient-primary);color:#fff;box-shadow:var(--glow)}
+.result-box .big{font-family:var(--font-display);font-size:2.2rem;font-weight:800;letter-spacing:-.03em}
+.result-box .btn-secondary{background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.35)}
+.result-box .btn-secondary:hover{background:rgba(255,255,255,.28)}
+.stage-block{display:none}.stage-block.show{display:block;animation:slideUp .5s var(--ease)}

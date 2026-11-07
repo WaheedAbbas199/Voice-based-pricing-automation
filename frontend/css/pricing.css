@@ -1,0 +1,12 @@
+.calc-layout{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:var(--space-5);align-items:start}
+.summary{position:sticky;top:calc(var(--topbar-height) + 1rem);background:var(--surface-color)}
+.summary-line{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px dashed var(--border-color);font-size:var(--fs-sm)}
+.summary-line span:last-child{font-weight:700;font-variant-numeric:tabular-nums}
+.summary-total{display:flex;justify-content:space-between;align-items:baseline;padding-top:1rem}
+.summary-total strong{font-family:var(--font-display);font-size:2rem;letter-spacing:-.03em}
+.summary-total strong.bump{animation:popIn .35s var(--ease)}
+.ext-field{display:flex;flex-direction:column;gap:.4rem}
+.ext-field .head{display:flex;justify-content:space-between;align-items:center;gap:.5rem}
+.quote-doc{background:#fff;color:#172033;padding:1.5rem;border-radius:12px;border:1px solid var(--border-color)}
+.quote-doc h3{color:#172033}.quote-doc table{margin:1rem 0;font-size:.9rem}.quote-doc th,.quote-doc td{padding:.5rem;border-bottom:1px solid #e1e7f1;text-align:left}
+.quote-doc td:last-child,.quote-doc th:last-child{text-align:right}

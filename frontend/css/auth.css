@@ -1,0 +1,22 @@
+.auth{min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)}
+.auth-side{position:relative;overflow:hidden;padding:3rem;display:flex;flex-direction:column;justify-content:space-between;color:#fff;background:linear-gradient(140deg,#3b2fd6,#7a4df0 55%,#0ea5c6);background-size:180% 180%;animation:gradientShift 14s ease-in-out infinite alternate}
+.auth-side::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 15%,rgba(255,255,255,.22),transparent 40%),radial-gradient(circle at 85% 85%,rgba(6,182,212,.4),transparent 45%)}
+.auth-side>*{position:relative}
+.auth-side h2{font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.1;max-width:15ch}
+.auth-side .quote{padding:1.2rem;border-radius:16px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(8px);max-width:420px}
+.auth-wave{display:flex;gap:5px;align-items:center;height:60px;margin:1.5rem 0}
+.auth-wave i{width:5px;border-radius:5px;background:rgba(255,255,255,.85);height:30%;animation:authWave 1.2s ease-in-out infinite;animation-delay:calc(var(--i)*70ms)}
+@keyframes authWave{50%{height:100%}}
+.auth-main{display:grid;place-items:center;padding:2rem}
+.auth-card{width:min(100%,420px)} .auth-card h1{margin-bottom:.4rem}
+.auth-card form{margin-top:1.5rem;display:flex;flex-direction:column;gap:1rem}
+.auth-foot{text-align:center;margin-top:1.2rem;font-size:var(--fs-sm);color:var(--text-muted)}.auth-foot a{color:var(--primary-color);font-weight:700}
+.strength{display:flex;gap:4px}.strength i{flex:1;height:4px;border-radius:4px;background:var(--surface-2);transition:background .3s}
+.strength[data-s="1"] i:nth-child(-n+1){background:var(--danger-color)}.strength[data-s="2"] i:nth-child(-n+2){background:var(--warning-color)}
+.strength[data-s="3"] i:nth-child(-n+3){background:var(--accent-color)}.strength[data-s="4"] i{background:var(--success-color)}
+.auth-theme{position:absolute;top:1rem;right:1rem}
+.alert{padding:.8rem 1rem;border-radius:12px;font-size:var(--fs-sm);font-weight:600;display:none}
+.alert.show{display:block;animation:slideUp .3s var(--ease)}
+.alert.error{background:color-mix(in srgb,var(--danger-color) 12%,transparent);color:var(--danger-color)}
+.alert.success{background:color-mix(in srgb,var(--success-color) 14%,transparent);color:#0b8a63}
+@media(max-width:860px){.auth{grid-template-columns:1fr}.auth-side{display:none}}

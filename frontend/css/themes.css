@@ -1,0 +1,14 @@
+/* Dark theme: only variables change, so every component follows automatically. */
+[data-theme="dark"]{
+  color-scheme:dark;
+  --background-color:#090C15; --surface-color:#121726; --surface-2:#1A2236;
+  --text-color:#EDF1FF; --text-muted:#9CA8C7; --border-color:#252E48;
+  --glass-bg:rgba(20,26,44,.62); --glass-border:rgba(255,255,255,.09); --grid-line:rgba(255,255,255,.06);
+  --card-shadow:0 1px 2px rgba(0,0,0,.4),0 10px 32px rgba(0,0,0,.38);
+  --shadow-lg:0 24px 60px rgba(0,0,0,.6);
+  --primary-color:#7C75FF;
+}
+[data-theme="dark"] .badge-success{color:#34d399}[data-theme="dark"] .badge-warning{color:#fbbf24}
+[data-theme="dark"] .badge-danger{color:#f87171}[data-theme="dark"] .badge-demo{color:#fbbf24}
+html.theme-anim *,html.theme-anim *::before,html.theme-anim *::after{transition:background-color .35s,color .35s,border-color .35s,fill .35s,stroke .35s,box-shadow .35s!important}
+[data-theme="light"] .only-dark,[data-theme="dark"] .only-light{display:none!important}

@@ -1,0 +1,33 @@
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes fadeOut{to{opacity:0}}
+@keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes modalOut{to{opacity:0;transform:translateY(10px) scale(.97)}}
+@keyframes toastIn{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+@keyframes toastOut{to{opacity:0;transform:translateX(30px)}}
+@keyframes shimmer{to{transform:translateX(100%)}}
+@keyframes pulseRing{0%{transform:scale(.9);opacity:.7}100%{transform:scale(1.9);opacity:0}}
+@keyframes gradientShift{0%{background-position:0 50%}100%{background-position:100% 50%}}
+@keyframes drawLine{from{stroke-dashoffset:var(--len,1200)}to{stroke-dashoffset:0}}
+@keyframes growUp{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes growRight{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes popIn{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:none}}
+
+/* scroll reveal (JS adds .js to <html>; without JS everything stays visible) */
+.js [data-reveal]{opacity:0;transform:translateY(22px);transition:opacity var(--anim-duration) var(--ease),transform var(--anim-duration) var(--ease);transition-delay:calc(var(--i,0)*70ms)}
+.js [data-reveal].is-in{opacity:1;transform:none}
+.js [data-reveal="left"]{transform:translateX(-26px)}.js [data-reveal="right"]{transform:translateX(26px)}
+.js [data-reveal="scale"]{transform:scale(.94)}
+.js [data-reveal].is-in{transform:none}
+.page-enter{animation:slideUp .55s var(--ease)}
+body.page-leaving{opacity:0;transition:opacity .18s}
+.chart-bar{transform-origin:bottom;animation:growUp .9s var(--ease) both;animation-delay:calc(var(--i,0)*50ms)}
+.chart-hbar{transform-origin:left;animation:growRight .9s var(--ease) both;animation-delay:calc(var(--i,0)*70ms)}
+.chart-line{stroke-dasharray:var(--len,1200);animation:drawLine 1.6s var(--ease) both}
+.chart-area{animation:fadeIn 1.4s .3s both}
+.chart-dot{animation:popIn .4s both;animation-delay:calc(var(--i,0)*80ms + .8s)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .js [data-reveal]{opacity:1;transform:none}
+}

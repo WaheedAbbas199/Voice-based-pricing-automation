@@ -1,0 +1,23 @@
+.app-shell{display:flex;min-height:100vh}
+.sidebar{position:fixed;inset:0 auto 0 0;width:var(--sidebar-width);background:var(--surface-color);border-right:1px solid var(--border-color);display:flex;flex-direction:column;padding:var(--space-4) .8rem;z-index:70;transition:width var(--transition-speed) var(--ease),transform var(--transition-speed) var(--ease);overflow-x:hidden}
+.sidebar .brand{padding:.2rem .5rem 1.1rem}
+.nav-list{display:flex;flex-direction:column;gap:.2rem;flex:1;overflow-y:auto}
+.nav-section{font-size:var(--fs-xs);font-weight:700;color:var(--text-muted);padding:.9rem .8rem .3rem;white-space:nowrap}
+.nav-item{position:relative;display:flex;align-items:center;gap:.8rem;padding:.65rem .8rem;border-radius:12px;color:var(--text-muted);font-weight:600;font-size:var(--fs-sm);white-space:nowrap;transition:background var(--transition-speed),color var(--transition-speed),transform var(--transition-speed) var(--ease);text-align:left;width:100%}
+.nav-item:hover{background:var(--surface-2);color:var(--text-color);transform:translateX(3px)}
+.nav-item.active{background:color-mix(in srgb,var(--primary-color) 13%,transparent);color:var(--primary-color)}
+.nav-item.active::before{content:"";position:absolute;left:-.8rem;top:20%;bottom:20%;width:4px;border-radius:0 4px 4px 0;background:var(--gradient-primary)}
+.nav-item .nav-label,.brand-text{transition:opacity .2s}
+.sidebar-footer{border-top:1px solid var(--border-color);padding-top:.8rem;display:flex;flex-direction:column;gap:.2rem}
+.sidebar-backdrop{position:fixed;inset:0;background:rgba(8,12,24,.5);z-index:65;opacity:0;visibility:hidden;transition:all var(--transition-speed)}
+.app-main{flex:1;margin-left:var(--sidebar-width);min-width:0;transition:margin-left var(--transition-speed) var(--ease)}
+.content{padding:var(--space-5) var(--space-5) var(--space-7);max-width:1480px;margin-inline:auto}
+body.sidebar-collapsed .sidebar{width:var(--sidebar-collapsed)}
+body.sidebar-collapsed .app-main{margin-left:var(--sidebar-collapsed)}
+body.sidebar-collapsed .nav-label,body.sidebar-collapsed .brand-text,body.sidebar-collapsed .nav-section{opacity:0;width:0;overflow:hidden;font-size:0;padding:0}
+body.sidebar-collapsed .nav-item{justify-content:center}
+body.admin-page .sidebar{box-shadow:inset 0 3px 0 var(--accent-color)}
+.admin-chip{background:color-mix(in srgb,var(--accent-color) 16%,transparent);color:var(--accent-color);padding:.15rem .5rem;border-radius:8px;font-size:var(--fs-xs);font-weight:800}
+.menu-btn{display:none}
+@media(max-width:1024px){.menu-btn{display:inline-flex}}
+.dropdown-menu .head{padding:.6rem .7rem;border-bottom:1px solid var(--border-color);margin-bottom:.3rem}
