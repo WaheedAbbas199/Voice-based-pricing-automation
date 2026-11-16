@@ -1,450 +1,622 @@
-VoxPrice
-Voice-powered pricing automation for faster, more consistent quotations.**
-VoxPrice turns spoken or uploaded customer orders into editable quotation line items. Google Gemini processes the audio and extracts order details; users review the result, calculate pricing, and save quotations to PostgreSQL.
+# 🚀 VoxPrice
 
-The application also includes an administrator-managed CMS for updating website content, product catalog data, theme settings, AI extraction behavior, and feature availability without changing source code.
-Table of contents**
-- Overview
-- Key features
-  - Voice-based order processing
+### AI-Powered Voice-to-Quotation Automation Platform
 
-  - Quotation and pricing workflow
+\<p align="center">
+&#x20; \*\*Turn customer conversations into professional quotations — faster, smarter, and more consistently.\*\*
+\</p>
 
-  - Authentication and access control
+\<p align="center">
+&#x20; \<img src="[https://img.shields.io/badge/Python-3.12+-3776AB?style=for-the-badge&logo=python&logoColor=white](https://img.shields.io/badge/Python-3.12+-3776AB?style=for-the-badge\&logo=python\&logoColor=white)" alt="Python"/>
+&#x20; \<img src="[https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white](https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge\&logo=fastapi\&logoColor=white)" alt="FastAPI"/>
+&#x20; \<img src="[https://img.shields.io/badge/Google-Gemini%20AI-4285F4?style=for-the-badge&logo=google&logoColor=white](https://img.shields.io/badge/Google-Gemini%20AI-4285F4?style=for-the-badge\&logo=google\&logoColor=white)" alt="Gemini"/>
+&#x20; \<img src="[https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge&logo=postgresql&logoColor=white](https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge\&logo=postgresql\&logoColor=white)" alt="PostgreSQL"/>
+&#x20; \<img src="[https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=for-the-badge\&logo=vercel\&logoColor=white)" alt="Vercel"/>
+\</p>
 
-  - Administration and CMS
-- How it works
-- Technology stack
-- Project structure
-- Requirements
-- Getting started
-  - 1. Get the source code
+\<p align="center">
+&#x20; \<a href="[https://github.com/WaheedAbbas199/Voice-based-pricing-automation](https://github.com/WaheedAbbas199/Voice-based-pricing-automation)">GitHub Repository\</a> •
+&#x20; \<a href="#-features">Features\</a> •
+&#x20; \<a href="#-installation">Installation\</a> •
+&#x20; \<a href="#-deployment">Deployment\</a>
+\</p>
 
-  - 2. Check Python
+---
 
-  - 3. Configure the database
+## 💡 About VoxPrice
 
-  - 4. Create the environment file and install dependencies
+**VoxPrice** is an AI-powered business automation platform designed to simplify the quotation process.
 
-  - 5. Add your Gemini API key
+Instead of manually listening to customer orders, identifying products, entering quantities, and calculating prices, businesses can use voice input or audio uploads to generate structured quotation data.
 
-  - 6. Start VoxPrice
+Powered by **Google Gemini AI**, VoxPrice transforms spoken customer requirements into editable order information. Users can review the extracted details, calculate accurate prices, and save quotations for future reference.
 
-  - 7. Sign in as administrator
+Beyond voice processing, VoxPrice includes an administrator dashboard and a configurable Content Management System (CMS), giving businesses control over products, pricing, website content, AI behavior, and application settings.
 
-  - 8. Process your first order
-- Environment configuration
-- Using VoxPrice
-  - Standard quotation workflow
+### The idea behind VoxPrice
 
-  - Frontend demo mode
-- Roles and permissions
-- Admin CMS
-- Database
-- Deployment
-- Security notes
-- Development notes
-- Troubleshooting
-- License
-Overview**
-Traditional quotation workflows often require staff to listen to customer orders, manually enter products and quantities, calculate totals, and save the results. VoxPrice streamlines this process with a voice-assisted workflow.
-1. Record an order in the browser or upload an audio file.
-2. VoxPrice sends the audio to the backend.
-3. Google Gemini transcribes and extracts structured order details.
-4. The user reviews and edits the extracted information.
-5. The backend recalculates the quotation total.
-6. The quotation is saved and can be reviewed later.
-Important: AI-extracted information is a starting point for the user to review. Always verify products, quantities, and other order details before saving a quotation.
+\<blockquote>
+&#x20; Automate repetitive quotation tasks so businesses can spend less time on manual data entry and more time serving their customers.
+\</blockquote>
 
-Key features**
-Voice-based order processing**
-- Record an order using the browser microphone.
-- Upload an existing audio file.
+---
+
+## ✨ Features
+
+### 🎙️ AI-Powered Voice Processing
+
+- Record customer orders directly through the browser.
+- Upload existing audio recordings.
 - Convert browser recordings to WAV before processing.
-- Use Google Gemini for transcription and structured detail extraction.
-- Review and edit extracted details before calculating a price.
-- Receive clear errors when the Gemini API key is missing or the service fails. The application does not present simulated transcription as a real result.
-Quotation and pricing workflow**
-- Maintain a product catalog.
-- Match extracted order details against catalog products.
-- Calculate quotation totals on the server.
-- Save quotations and retain pricing history.
-- Review previous quotations.
-Authentication and access control**
-- Register, log in, and log out.
-- Change profile details and passwords.
-- Support password-reset links through SMTP, or print the reset link to the server console when SMTP is not configured.
-- Use server-enforced role-based permissions.
-- Apply login rate limiting, CSRF header checks, secure session cookies, and security headers.
-Administration and CMS**
-Administrators can manage:
-- Website text, headings, descriptions, and footer content.
-- Landing-page sections such as features, benefits, statistics, pricing plans, testimonials, and FAQs.
-- Product catalog entries used by the pricing calculator and AI matching.
-- Theme colors, corner radius, and heading/body fonts.
-- Gemini model settings, temperature, and extraction prompt.
-- Feature switches, including sign-ups, recording, uploads, and landing-page sections.
-- Users, roles, account activation, product prices, system limits, logs, and error monitoring.
-CMS changes are stored in the database and take effect without editing application source files.
-How it works**
+- Process audio using Google Gemini.
+- Extract structured product and quantity information.
+- Review and edit AI-generated order details.
+- Handle missing API keys and AI processing errors.
+
+### 🧾 Smart Quotation Management
+
+- Maintain a centralized product catalog.
+- Match extracted order details with available products.
+- Calculate quotation totals on the backend.
+- Save quotations to PostgreSQL.
+- Maintain pricing history.
+- Review previously generated quotations.
+- Keep pricing calculations under server-side control.
+
+### 🔐 Authentication & Access Control
+
+- User registration and authentication.
+- Secure login and logout.
+- Profile and password management.
+- Optional password-reset email support through SMTP.
+- Backend-enforced role-based permissions.
+- Login rate limiting.
+- CSRF-related request protection.
+- Secure HTTP-only session cookies.
+- Security headers.
+
+### 🛠️ Powerful Admin Dashboard
+
+Manage important application operations from a centralized administration area:
+
+- User and role management.
+- Account activation and deactivation.
+- Product catalog and pricing management.
+- System limits and application settings.
+- Activity logs and error monitoring.
+- Administrative controls.
+
+### 🎨 Dynamic Content Management System
+
+Update application content without changing source code.
+
+| CMS Module       | Capabilities                                               |
+| ---------------- | ---------------------------------------------------------- |
+| Website Content  | Brand name, headings, descriptions, footer                 |
+| Landing Page     | Features, benefits, statistics and sections                |
+| Pricing Content  | Pricing plans and related information                      |
+| Social Proof     | Testimonials and FAQs                                      |
+| Product Catalog  | Product information and prices                             |
+| Theme Settings   | Colors, fonts and corner radius                            |
+| AI Configuration | Gemini model, temperature and extraction prompt            |
+| Feature Controls | Registration, recording, uploads and landing-page sections |
+
+---
+
+## ⚙️ How It Works
+
+VoxPrice follows an AI-assisted quotation workflow:
+
+```mermaid
+flowchart TD
+    A["Customer Order"] --> B["Browser Recording / Audio Upload"]
+    B --> C["FastAPI Backend"]
+    C --> D["Google Gemini AI"]
+    D --> E["Transcription & Data Extraction"]
+    E --> F["User Reviews Extracted Information"]
+    F --> G["Product Matching"]
+    G --> H["Server-Side Price Calculation"]
+    H --> I["PostgreSQL Database"]
+    I --> J["Saved Quotation & Pricing History"]
+
+    style A fill:#2563eb,color:#fff
+    style D fill:#4285f4,color:#fff
+    style I fill:#336791,color:#fff
+    style J fill:#059669,color:#fff
+```
+
+### Workflow Explained
+
+1. **Capture:** Record a customer order or upload an audio file.
+2. **Process:** Send the audio to the FastAPI backend.
+3. **Understand:** Google Gemini extracts structured order information.
+4. **Review:** The user verifies and edits the extracted details.
+5. **Match:** Extracted products are matched against the product catalog.
+6. **Calculate:** The backend calculates the quotation total.
+7. **Save:** The quotation and related information are stored in PostgreSQL.
+
+> **AI verification matters:** AI-generated information can contain errors. Always review product names, quantities, and order details before saving a quotation.
+
+---
+
+## 🧰 Technology Stack
+
+| Technology        | Purpose                               |
+| ----------------- | ------------------------------------- |
+| Python 3.12       | Core programming language             |
+| FastAPI           | Backend API and application server    |
+| HTML5             | Frontend structure                    |
+| CSS3              | Interface styling                     |
+| JavaScript        | Frontend functionality                |
+| Google Gemini API | Audio understanding and extraction    |
+| PostgreSQL        | Persistent relational database        |
+| Neon              | Cloud PostgreSQL hosting              |
+| SQLAlchemy        | Database ORM                          |
+| Psycopg           | PostgreSQL database driver            |
+| Vercel            | Application deployment                |
+| Git & GitHub      | Version control and source management |
 
-Customer order
+---
 
-     |
+## 🏗️ Project Architecture
 
-     v
+```text
+Voice-based-pricing-automation/
+│
+├── backend/
+│   ├── app.py
+│   ├── config.py
+│   ├── seed.py
+│   ├── api_admin.py
+│   ├── api_auth.py
+│   ├── api_cms.py
+│   ├── api_core.py
+│   └── ...
+│
+├── frontend/
+│   ├── index.html
+│   ├── css/
+│   ├── js/
+│   └── ...
+│
+├── data/
+│
+├── scripts/
+│
+├── tests/
+│
+├── .env.example
+├── .gitignore
+├── pyproject.toml
+├── requirements.txt
+├── vercel.json
+└── README.md
+```
 
-Browser recording / audio upload
+*The structure above is a simplified overview. Additional modules, frontend assets, and configuration files may exist in the repository.*
 
-     |
+---
 
-     v
+## 🚀 Installation
 
-FastAPI audio endpoint
+Follow these steps to run VoxPrice locally.
 
-     |
+### Prerequisites
 
-     v
+Make sure you have:
 
-Google Gemini
+- Python 3.12 or newer.
+- Git.
+- A Google Gemini API key.
+- PostgreSQL for the full database setup.
+- Internet access for installing dependencies.
 
-(transcription + structured extraction)
+### 1. Clone the Repository
 
-     |
+```bash
+git clone https://github.com/WaheedAbbas199/Voice-based-pricing-automation.git
 
-     v
+cd Voice-based-pricing-automation
+```
 
-User reviews and edits order details
+### 2. Create a Virtual Environment
 
-     |
+**Windows PowerShell:**
 
-     v
+```powershell
+python -m venv .venv
 
-Server-side pricing calculation
+.\.venv\Scripts\Activate.ps1
+```
 
-     |
+### 3. Install Dependencies
 
-     v
+```bash
+python -m pip install --upgrade pip
 
-PostgreSQL quotation + pricing history
+pip install -r requirements.txt
+```
 
-Technology stack**
-| Layer | Technology |
+Alternatively:
 
-|---|---|
+```bash
+pip install .
+```
 
-| Backend API | Python, FastAPI |
+### 4. Configure Environment Variables
 
-| Frontend | HTML, CSS, vanilla JavaScript |
+Create your local environment file:
 
-| AI audio processing | Google Gemini |
+```powershell
+Copy-Item .env.example .env
+```
 
-| Database | PostgreSQL |
+Open `.env` and configure the required values.
 
-| ORM | SQLAlchemy |
+### 5. Configure Google Gemini
 
-| Authentication | Signed HTTP-only session cookie, Scrypt password hashing |
+Get your API key from:
 
-| Local fallback database | SQLite |
+[https://aistudio.google.com/apikey](https://aistudio.google.com/apikey)
 
-| Optional local database service | Docker Compose |
-Project structure**
+Add the key to `.env`:
 
-voxprice/
-
-├── main.py                 # Application entry point
-
-├── requirements.txt        # Python dependencies
-
-├── .env.example            # Environment configuration template
-
-├── docker-compose.yml      # Optional PostgreSQL service
-
-├── backend/                # FastAPI application
-
-│   ├── auth/               # Authentication and session handling
-
-│   ├── customers/          # Customer management
-
-│   ├── quotations/         # Quotation and pricing workflows
-
-│   ├── audio/              # Audio upload and Gemini processing
-
-│   ├── admin/              # Administrative APIs
-
-│   └── cms/                # CMS functionality
-
-└── frontend/
-
-    ├── index.html
-
-    ├── css/
-
-    │   ├── variables.css   # Main theme variables
-
-    │   └── themes.css      # Theme definitions
-
-    └── js/
-
-        ├── api.js          # Centralized API requests
-
-        └── env.js          # Runtime environment detection
-
-The backend and frontend subfolders may contain additional modules and assets beyond this simplified overview.
-Requirements**
-- Python 3.10 or newer
-- A Google Gemini API key
-- PostgreSQL for the production-style database setup, or SQLite for a quick local trial
-- Docker Desktop (optional, if using the included PostgreSQL service)
-- Internet access during first-time dependency installation
-Getting started**
-1. Get the source code**
-Clone the repository and enter the project directory:
-
-git clone <YOUR_REPOSITORY_URL>
-
-cd voxprice
-
-If you already have the project files, open a terminal in the project root.
-2. Check Python**
-
-python --version
-
-Make sure Python 3.10 or newer is installed.
-3. Configure the database**
-Choose one of the following options.
-
-Option A — PostgreSQL with Docker Compose**
-Start the database service:
-
-docker compose up -d db
-
-Make sure the DATABASE_URL in your .env matches the credentials and port configured in docker-compose.yml.
-
-Option B — Existing PostgreSQL installation**
-Create or select a PostgreSQL database, then set its connection URL in .env.
-
-Option C — SQLite quick trial**
-You can try the application without setting up PostgreSQL:
-
-python main.py --sqlite
-
-SQLite is intended as a convenient local trial option. Use PostgreSQL for a production deployment.
-4. Create the environment file and install dependencies**
-Run the application once:
-
-python main.py
-
-According to the project startup behavior, the first run creates .env when it is missing, creates a virtual environment, and installs the required packages. This step requires internet access.
-
-Stop the application with Ctrl+C after the initial setup if you need to edit configuration.
-5. Add your Gemini API key**
-Get an API key from Google AI Studio.
-
-Open .env and set:
-
+```env
 GEMINI_API_KEY=your_gemini_api_key
+GEMINI_MODEL=gemini-2.5-flash
+```
 
-Also configure DATABASE_URL if you are using PostgreSQL.
-6. Start VoxPrice**
+Keep your API key private.
 
-python main.py
+### 6. Configure PostgreSQL
 
-The application should start at:
+For a local PostgreSQL database, use a connection string similar to:
 
-http://localhost:8000
+```env
+DATABASE_URL=postgresql://USERNAME:PASSWORD@localhost:5432/DATABASE_NAME
+```
 
-To see all supported command-line options:
+Make sure the database exists and your PostgreSQL server is running.
 
-python main.py --help
+### 7. Start the Application
 
-Available options include:
+```bash
+uvicorn backend.app:app --host 127.0.0.1 --port 8000 --reload
+```
 
-| Option | Purpose |
+Open VoxPrice in your browser:
 
-|---|---|
+[**http://localhost:8000**](http://localhost:8000)
 
-| --sqlite | Use SQLite for a local trial |
+---
 
-| --port | Set the application port |
+## 🔑 Environment Variables
 
-| --host | Set the host/interface to bind to |
+VoxPrice uses environment variables to separate application configuration from source code.
 
-| --no-browser | Do not automatically open a browser |
-7. Sign in as administrator**
-Use the ADMIN_EMAIL and ADMIN_PASSWORD values configured in .env.
+| Variable         | Description                           |
+| ---------------- | ------------------------------------- |
+| `DATABASE_URL`   | PostgreSQL connection string          |
+| `GEMINI_API_KEY` | Google Gemini API key                 |
+| `GEMINI_MODEL`   | Gemini model identifier               |
+| `ADMIN_EMAIL`    | Initial administrator email           |
+| `ADMIN_PASSWORD` | Initial administrator password        |
+| `SECRET_KEY`     | Application security secret           |
+| `DATA_DIR`       | Application data and upload directory |
+| `SEED_DEMO_DATA` | Demo/seed data configuration          |
+| `COOKIE_SECURE`  | Secure-cookie configuration           |
+| `PUBLIC_URL`     | Public application URL                |
+| `HOST`           | Server bind host                      |
+| `PORT`           | Server port                           |
+| `SMTP_HOST`      | Optional SMTP server                  |
+| `SMTP_PORT`      | Optional SMTP port                    |
+| `SMTP_USER`      | SMTP username                         |
+| `SMTP_PASSWORD`  | SMTP password                         |
+| `SMTP_FROM`      | Email sender address                  |
 
-The documented initial defaults are:
-- Email: admin@example.com
-- Password: ChangeMe123!
-These defaults are for local setup only. Change the administrator password immediately after signing in. Never use default credentials in a public deployment.
-8. Process your first order**
-1. Open Voice Assistant.
-2. Allow microphone access, or upload an audio recording.
-3. Select Process audio.
-4. Review the details returned by Gemini.
-5. Correct product names, quantities, or other extracted fields as needed.
-6. Select Calculate price.
-7. Review the calculated total and select Save.
-Environment configuration**
-The .env.example file documents the available configuration. Common variables include:
+### Example `.env`
 
-| Variable | Purpose |
+```env
+DATABASE_URL=postgresql://USER:PASSWORD@HOST:5432/DATABASE
 
-|---|---|
+GEMINI_API_KEY=
+GEMINI_MODEL=gemini-2.5-flash
 
-| DATABASE_URL | Database connection URL |
+ADMIN_EMAIL=admin@example.com
+ADMIN_PASSWORD=CHANGE_THIS_PASSWORD
 
-| GEMINI_API_KEY | Google Gemini API key |
+SECRET_KEY=
 
-| GEMINI_MODEL | Gemini model identifier |
+SEED_DEMO_DATA=false
 
-| ADMIN_EMAIL | Initial administrator email |
+DATA_DIR=./data
 
-| ADMIN_PASSWORD | Initial administrator password |
+COOKIE_SECURE=false
+PUBLIC_URL=
 
-| SEED_DEMO_DATA | Controls demo/seed data behavior |
+HOST=127.0.0.1
+PORT=8000
 
-| HOST | Server bind host |
+SMTP_HOST=
+SMTP_PORT=587
+SMTP_USER=
+SMTP_PASSWORD=
+SMTP_FROM=no-reply@voxprice.local
+```
 
-| PORT | Server port |
+**Configuration guidelines:**
 
-| COOKIE_SECURE | Enables secure-cookie behavior |
+- Use `.env.example` as the configuration template.
+- Keep real credentials in `.env`.
+- Never upload `.env` to GitHub.
+- Use a strong, unique administrator password.
+- Enable secure cookies when using HTTPS.
+- Configure SMTP only when email delivery is required.
+- Use the appropriate data directory for your hosting environment.
 
-| PUBLIC_URL | Public application URL |
+---
 
-| SMTP_* | Optional email delivery configuration |
+## 🗄️ Database Configuration
 
-| SECRET_KEY | Secret used for signing/security-related operations |
+VoxPrice uses SQLAlchemy and PostgreSQL for application data.
 
-Use the exact variable names and formats in your local .env.example. Do not commit .env or real credentials to Git.
-Using VoxPrice**
-Standard quotation workflow**
-The typical workflow is:
-- Select or create a customer.
-- Capture or upload the customer's spoken order.
-- Process the audio with Gemini.
-- Review and correct the extracted order details.
-- Calculate the quotation.
-- Save the quotation for future reference.
-The backend recalculates totals so the browser is not trusted as the source of pricing truth.
-Frontend demo mode**
-The frontend can be run without the backend for a limited UI demonstration:
+### Neon PostgreSQL
 
-cd frontend
+For cloud deployment, VoxPrice supports Neon PostgreSQL.
 
-python -m http.server 8000
+**Setup:**
 
-Open http://localhost:8000.
+1. Create an account at [Neon](https://neon.tech/).
+2. Create a PostgreSQL project.
+3. Create or select your database.
+4. Copy the connection string.
+5. Add it to your deployment environment as `DATABASE_URL`.
+6. Deploy or redeploy the application.
 
-In this mode, the frontend uses sample data stored in localStorage. Transcription is simulated and labelled as sample data. This is not the real Gemini-backed workflow.
+The application initializes its database tables during startup.
 
-When the frontend is served by the backend, js/env.js automatically switches the app to real-API mode.
-Roles and permissions**
-Permissions are enforced by the backend, not just hidden in the frontend.
+### Main Data Areas
 
-| Role | Permissions |
+- Users and authentication.
+- Products and catalog information.
+- Customers.
+- Quotations.
+- Pricing history.
+- Audio processing records.
+- CMS content.
+- Application settings.
+- Activity and audit records.
+- Error logs.
 
-|---|---|
+For production, configure regular database backups and test database restoration.
 
-| Admin | Full access, including administration and CMS |
+---
 
-| Manager | Create, edit, and delete operational records |
+## ☁️ Deployment
 
-| Agent | Create and edit permitted records |
+VoxPrice is configured for deployment as a Python FastAPI application on Vercel.
 
-| Viewer | Read-only access |
+### Deployment Architecture
 
-Actual permissions should always be verified against the server-side authorization rules in the running version.
-Admin CMS**
-Open the administrator area and select CMS from the sidebar.
+```text
+                 ┌────────────────────┐
+                 │      Vercel        │
+                 │  FastAPI Runtime   │
+                 └─────────┬──────────┘
+                           │
+             ┌─────────────┴─────────────┐
+             │                           │
+      ┌──────▼───────┐            ┌──────▼──────┐
+      │   Frontend   │            │   Backend   │
+      │ HTML/CSS/JS  │            │   FastAPI   │
+      └──────────────┘            └──────┬──────┘
+                                         │
+                          ┌──────────────┴──────────────┐
+                          │                             │
+                   ┌──────▼──────┐               ┌──────▼──────┐
+                   │ Google      │               │ Neon        │
+                   │ Gemini AI   │               │ PostgreSQL  │
+                   └─────────────┘               └─────────────┘
+```
 
-| CMS area | What administrators can manage |
+### Step 1. Push Your Code to GitHub
 
-|---|---|
+```bash
+git add .
+git commit -m "Update VoxPrice application"
+git push origin main
+```
 
-| Site content | Brand name, hero title, descriptions, headings, footer |
+Before committing, verify that `.env` and all secret files are excluded by `.gitignore`.
 
-| Landing-page sections | Features, benefits, statistics, pricing plans, testimonials, FAQs |
+### Step 2. Import the Repository into Vercel
 
-| Products | Product catalog and pricing data used by the calculator and AI matching |
+1. Open [Vercel](https://vercel.com/).
+2. Select **Add New Project**.
+3. Import your GitHub repository.
+4. Select the `main` branch.
+5. Keep the project root directory as `./`.
+6. Use the FastAPI framework configuration.
 
-| Theme and fonts | Colors, corner radius, heading font, body font |
+### Step 3. Configure Environment Variables
 
-| Gemini settings | Model, temperature, extraction prompt, connection test |
+Open:
 
-| Feature switches | Landing sections, sign-ups, recording, and upload availability |
+**Vercel → Project → Settings → Environment Variables**
 
-The Admin Console also provides user and role management, account activation/deactivation, temporary passwords, system limits, logs, and error monitoring.
-Database**
-VoxPrice uses SQLAlchemy to work with PostgreSQL. The application creates its tables automatically during startup.
+Add the following production variables:
 
-The documented data areas include:
-- Users
-- Products
-- Customers
-- Quotations
-- Pricing history
-- Audio requests
-- Activity records
-- Audit logs
-- Error logs
-- Application settings
-- CMS items
-For production, configure regular database backups and test the restore process.
-Deployment**
-For a production deployment:
-1. Provision a PostgreSQL database.
-2. Configure all required environment variables in the hosting provider's secret/environment settings.
-3. Set COOKIE_SECURE=true.
-4. Set PUBLIC_URL to the HTTPS URL of the deployed application.
-5. Set a strong, unique ADMIN_PASSWORD and SECRET_KEY.
-6. Configure SMTP if password-reset emails should be delivered.
-7. Run the application with a production-appropriate process/server configuration.
-8. Put the application behind HTTPS using a reverse proxy such as Nginx or Caddy, or an equivalent managed platform.
-9. Configure persistent storage for required uploads.
-10. Back up PostgreSQL and the data/uploads directory.
-11. Configure and verify the audio-retention policy in Admin → System.
-The documented command for starting the app without automatically opening a browser is:
+| Variable         | Value                             |
+| ---------------- | --------------------------------- |
+| `DATABASE_URL`   | Neon PostgreSQL connection string |
+| `GEMINI_API_KEY` | Your Gemini API key               |
+| `GEMINI_MODEL`   | `gemini-2.5-flash`                |
+| `SECRET_KEY`     | Strong randomly generated secret  |
+| `ADMIN_EMAIL`    | Administrator email               |
+| `ADMIN_PASSWORD` | Strong administrator password     |
+| `SEED_DEMO_DATA` | `false`                           |
+| `COOKIE_SECURE`  | `true`                            |
+| `PUBLIC_URL`     | Your deployed HTTPS URL           |
+| `DATA_DIR`       | `/tmp/voxprice-data`              |
 
-python main.py --host 0.0.0.0 --no-browser
+Add the variables to the deployment environments where required.
 
-Hosting note: This project is a Python FastAPI application that serves its frontend. A static-only hosting configuration is not sufficient for the complete application. Choose a hosting platform that supports a persistent Python web service and configure database and upload storage appropriately. Confirm the platform's filesystem, process, timeout, and database requirements before deployment.
-Security notes**
-- Keep .env out of version control.
-- Never expose GEMINI_API_KEY, SECRET_KEY, database credentials, or SMTP credentials to frontend code.
-- Replace default administrator credentials before exposing the app publicly.
-- Use HTTPS and secure cookies in production.
-- Restrict database access to trusted services.
-- Back up the database and required uploaded files.
-- Review access logs, audit logs, and error logs.
-- Treat AI-extracted order details as unverified until reviewed by a user.
-Development notes**
-- The frontend uses HTML, CSS, and vanilla JavaScript; no frontend build step is required by the documented setup.
-- Frontend modules share a window.VP namespace.
-- frontend/js/api.js is the centralized location for API fetch calls.
-- frontend/css/variables.css contains the main theme variables.
-- frontend/css/themes.css contains dark-theme values.
-- Theme settings can also be changed through the CMS.
-- Keep secrets and environment-specific values in environment configuration, not source files.
-Troubleshooting**
-| Issue | What to check |
+### Step 4. Generate a Secret Key
 
-|---|---|
+Run locally:
 
-| Application cannot connect to PostgreSQL | Confirm PostgreSQL is running and DATABASE_URL is correct |
+```bash
+python -c "import secrets; print(secrets.token_urlsafe(48))"
+```
 
-| Gemini processing fails | Confirm GEMINI_API_KEY, model configuration, network access, and API availability |
+Add the generated value as `SECRET_KEY` in Vercel.
 
-| Microphone is unavailable | Check browser microphone permissions; use a supported browser context |
+Never publish this value.
 
-| Password-reset email is not received | Configure and verify the SMTP_* settings; otherwise check the server console for the reset link |
+### Step 5. Deploy
 
-| Frontend shows sample data | Confirm you opened the backend-served application rather than the standalone demo server |
+1. Save the environment variables.
+2. Open the Deployments section.
+3. Deploy the latest GitHub commit.
+4. Wait for the build to complete.
+5. Open the generated deployment URL.
 
-| Port is already in use | Start the application with a different --port value |
+### Step 6. Verify the Application
 
-| Uploads are missing after deployment | Check that data/uploads uses persistent storage on the hosting platform |
-License**
-No license has been specified yet. Unless a license is added to this repository, all rights remain with the copyright holder and reuse, modification, or redistribution may be restricted.
-VoxPrice — Turn spoken orders into reviewed, calculated, and saved quotations.
+Test the following:
+
+- Homepage and frontend loading.
+- Administrator login.
+- Database connectivity.
+- Product catalog.
+- Audio upload.
+- Gemini processing.
+- Quotation calculations.
+- Saving and reviewing quotations.
+- CMS functionality.
+
+A successful build does not by itself guarantee that all runtime features work. Test the deployed application after every important deployment.
+
+### ⚠️ Important: Vercel File Storage
+
+Vercel serverless environments do not provide permanent local filesystem storage.
+
+VoxPrice uses:
+
+```env
+DATA_DIR=/tmp/voxprice-data
+```
+
+for its Vercel runtime data directory.
+
+**Important:** Files stored in `/tmp` are temporary and may disappear when an instance is recycled.
+
+For permanent uploaded audio and other files, integrate persistent object storage such as Vercel Blob or an S3-compatible service.
+
+Neon PostgreSQL provides persistent database storage separately.
+
+---
+
+## 🔐 Security
+
+Security is an important part of a business application.
+
+Recommended practices:
+
+- Never commit `.env` to GitHub.
+- Never expose API keys in frontend JavaScript.
+- Protect database credentials.
+- Use strong and unique administrator credentials.
+- Keep `SECRET_KEY` private.
+- Use HTTPS in production.
+- Enable secure session cookies.
+- Apply server-side permission checks.
+- Verify AI-generated information before saving quotations.
+- Configure database backups.
+- Use persistent storage for important uploaded files.
+- Monitor application logs and errors.
+
+---
+
+## 🧪 Development
+
+For local development:
+
+```bash
+uvicorn backend.app:app --host 127.0.0.1 --port 8000 --reload
+```
+
+The `--reload` option automatically restarts the development server when code changes are detected.
+
+### Useful Development Practices
+
+- Keep API requests centralized.
+- Separate application configuration from source code.
+- Keep database operations on the backend.
+- Validate user input before processing.
+- Keep pricing calculations server-controlled.
+- Avoid exposing sensitive environment variables.
+- Test changes before pushing them to the main branch.
+
+---
+
+## 🛠️ Troubleshooting
+
+| Problem                      | What to Check                              |
+| ---------------------------- | ------------------------------------------ |
+| Application does not start   | Python version and installed dependencies  |
+| Database connection fails    | `DATABASE_URL` and PostgreSQL availability |
+| Gemini processing fails      | API key, model name and API availability   |
+| Microphone unavailable       | Browser microphone permissions             |
+| Audio upload fails           | File type, size and upload configuration   |
+| Login fails                  | Credentials and database initialization    |
+| Password-reset email missing | SMTP configuration                         |
+| Vercel build fails           | Latest build logs and dependencies         |
+| Vercel returns a 500 error   | Latest deployment Runtime Logs             |
+| Uploaded files disappear     | Use persistent external storage            |
+| Frontend displays demo data  | Open the backend-served application        |
+
+For deployment issues, inspect:
+
+**Vercel Dashboard → Project → Deployments → Latest Deployment → Runtime Logs**
+
+Always investigate the newest error rather than relying on logs from previous deployments.
+
+---
+
+## 🗺️ Future Roadmap
+
+Potential future improvements for VoxPrice include:
+
+- [ ] Persistent cloud audio storage.
+- [ ] PDF quotation generation.
+- [ ] Email quotation delivery.
+- [ ] Advanced quotation analytics.
+- [ ] Multi-company support.
+- [ ] Advanced product matching.
+- [ ] Quotation approval workflows.
+- [ ] Subscription and billing integration.
+- [ ] More AI-powered business automation.
+
+---
+
+## 👨‍💻 Author
+
+**Waheed Abbas**
+
+AI Engineer | AI Automation & Agentic AI Enthusiast
+
+- **GitHub:** [WaheedAbbas199](https://github.com/WaheedAbbas199)
+- **Project:** [Voice-based-pricing-automation](https://github.com/WaheedAbbas199/Voice-based-pricing-automation)
+
+---
+
+## 📄 License
+
+No open-source license has currently been specified.
+
+Until a license is added, all rights remain with the copyright holder. Reuse, modification, and redistribution may be restricted.
+
+---
+
+\<p align="center">   \*\*VoxPrice\*\*   \<br/>   \<i>From customer voice to professional quotation.\</i>   \<br/>\<br/>   Built to make business quotation workflows smarter, faster, and more efficient. \</p>
