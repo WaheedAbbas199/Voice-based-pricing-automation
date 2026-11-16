@@ -1,14 +1,24 @@
-# 🚀 VoxPrice
+# VoxPrice — AI-Powered Voice-to-Quotation Automation Platform
 
-### AI-Powered Voice-to-Quotation Automation Platform
+<p align="center">
+  <strong>Transform customer conversations into professional quotations — faster, smarter, and more consistently.</strong>
+</p>
 
-\<p align="center">   \<strong>Transform customer conversations into professional quotations — faster, smarter, and more consistently.\</strong> \</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.12+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI"/>
+  <img src="https://img.shields.io/badge/Google-Gemini%20AI-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Google Gemini"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
+  <img src="https://img.shields.io/badge/Deployment-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel"/>
+</p>
 
-\<p align="center">   \<img src="[https://img.shields.io/badge/Python-3.12+-3776AB?style=for-the-badge&logo=python&logoColor=white](https://img.shields.io/badge/Python-3.12+-3776AB?style=for-the-badge\&logo=python\&logoColor=white)" alt="Python"/>   \<img src="[https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white](https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge\&logo=fastapi\&logoColor=white)" alt="FastAPI"/>   \<img src="[https://img.shields.io/badge/Google-Gemini%20AI-4285F4?style=for-the-badge&logo=google&logoColor=white](https://img.shields.io/badge/Google-Gemini%20AI-4285F4?style=for-the-badge\&logo=google\&logoColor=white)" alt="Google Gemini"/>   \<img src="[https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge&logo=postgresql&logoColor=white](https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge\&logo=postgresql\&logoColor=white)" alt="PostgreSQL"/>   \<img src="[https://img.shields.io/badge/Deployment-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white](https://img.shields.io/badge/Deployment-Vercel-000000?style=for-the-badge\&logo=vercel\&logoColor=white)" alt="Vercel"/> \</p>
-
-\<p align="center">   \<a href="[https://voice-based-pricing-automation-liard.vercel.app/](https://voice-based-pricing-automation-liard.vercel.app/)">Live Application\</a> •   \<a href="[https://github.com/WaheedAbbas199/Voice-based-pricing-automation](https://github.com/WaheedAbbas199/Voice-based-pricing-automation)">GitHub Repository\</a> •   \<a href="#-features">Features\</a> •   \<a href="#-installation">Installation\</a> •   \<a href="#-deployment">Deployment\</a> \</p>
-
----
+<p align="center">
+  <a href="https://voice-based-pricing-automation-liard.vercel.app/">Live Application</a> •
+  <a href="https://github.com/WaheedAbbas199/Voice-based-pricing-automation">GitHub Repository</a> •
+  <a href="#-features">Features</a> •
+  <a href="#-installation">Installation</a> •
+  <a href="#-deployment">Deployment</a>
+</p>
 
 ## 💡 About VoxPrice
 
