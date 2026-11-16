@@ -4,7 +4,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 FRONTEND_DIR = ROOT / "frontend"
-DATA_DIR = ROOT / "data"
+DATA_DIR = Path(os.getenv("DATA_DIR", "/tmp/voxprice-data" if os.getenv("VERCEL") else str(ROOT / "data")))
 UPLOAD_DIR = DATA_DIR / "uploads"
 
 
